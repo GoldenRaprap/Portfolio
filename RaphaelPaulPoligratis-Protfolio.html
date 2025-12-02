@@ -1,0 +1,1022 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raphael Paul Poligratis Portfolio</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    
+    html { scroll-behavior: smooth; }
+
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background-color: #f8f9fa;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .portfolio-container {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    header {
+      background-image: src="https://drive.google.com/file/d/1KtHllBHQIkUVykMzE4d5zWi6kGs5HsTx/view?usp=sharing";
+      width:100%;
+      height:auto;
+      padding: 0; 
+      text-align: center;
+      border-bottom: 12px solid royalblue;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column; /* stack image above the name */
+      align-items: center; /* center everything */
+      gap: 12px;
+      width: 100%;
+      padding: 0; /* vertical spacing handled by .header-right */
+    }
+
+    /* right side of header: name, subtitle and nav */
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* center name/title/nav horizontally */
+      gap: 6px;
+      text-align: center; /* center text */
+      flex: 1; /* allow right area to take remaining width */
+      padding: 60px 40px; /* vertical spacing moved here so image can fill the header height */
+    }
+
+    /* align the nav to the left inside the right column on wide screens */
+    .header-right .header-nav {
+      justify-content: center;
+    }
+
+    /* header navigation */
+    .header-nav {
+      display: flex;
+      gap: 18px;
+      margin-top: 6px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .header-nav a {
+      color: #ffffff; /* white links on blue header */
+      text-decoration: none;
+      font-size: 16px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .header-nav a:hover,
+    .header-nav a:focus {
+      background: rgba(255, 255, 255, 0.14);
+      text-decoration: underline;
+      outline: none;
+    }
+
+    /* footer + map styling (duplicate block) */
+    .site-footer {
+      margin-top: 48px;
+      background: royalblue; /* user-requested color */
+      color: #ffffff; /* ensure text is readable on royalblue */
+    }
+
+    .map-container {
+      width: 100%;
+      max-width: 100%;
+      height: 380px; /* desktop default */
+      display: block;
+      box-shadow: inset 0 -2px 0 rgba(0,0,0,0.04);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .footer-nav-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 18px 20px 36px 20px;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      color: #ffffff; /* ensure links are visible on royalblue */
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .footer-nav a:hover, .footer-nav a:focus {
+      background: rgba(26,37,47,0.06);
+      text-decoration: underline;
+    }
+
+    /* footer + map styling */
+    .site-footer {
+      margin-top: 48px;
+      background: royalblue; /* user-requested color */
+      color: #ffffff; /* ensure text is readable on royalblue */
+    }
+
+    .map-container {
+      width: 100%;
+      max-width: 100%;
+      height: 380px; /* desktop default */
+      display: block;
+      box-shadow: inset 0 -2px 0 rgba(0,0,0,0.04);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .footer-nav-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 18px 20px 36px 20px;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      color: #ffffff; /* ensure links are visible on royalblue */
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .footer-nav a:hover, .footer-nav a:focus {
+      background: rgba(26,37,47,0.06);
+      text-decoration: underline;
+    }
+
+    /* header navigation */
+    .header-nav {
+      display: flex;
+      gap: 18px;
+      margin-top: 6px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .header-nav a {
+      color: #ffffff; /* white links on blue header */
+      text-decoration: none;
+      font-size: 16px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .header-nav a:hover,
+    .header-nav a:focus {
+      background: rgba(255, 255, 255, 0.14);
+      text-decoration: underline;
+      outline: none;
+    }
+
+    .profile-image-container {
+      width: 240px; /* larger circular profile */
+      height: 240px;
+      border-radius: 50%; /* circular again */
+      overflow: hidden;
+      border: none; /* no border */
+      display:flex;
+      align-items:stretch;
+      justify-content:center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    /* header subtitle / role */
+    #portfolio-title {
+      font-size: 18px;
+      font-weight: 300;
+      color: #ffffff;
+      opacity: 0.95;
+      margin-top: -2px;
+      letter-spacing: 0.6px;
+    }
+
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    /* make the img fit the container and cover it while remaining square */
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    header h1, h1 {
+      margin: 0;
+      font-size: 48px;
+      font-weight: 400;
+      color: #ffffff; 
+      letter-spacing: 1px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 40px;
+    }
+
+    section {
+      background-color: #ffffff;
+      margin-bottom: 40px;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      font-size: 32px;
+      margin: 0 0 24px 0;
+      color: #1a252f;
+      font-weight: 400;
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 12px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 0 0 16px 0;
+      color: #495057;
+    }
+
+    .experience-item, .skill-item {
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .experience-item:last-child, .skill-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin: 0 0 8px 0;
+      color: #2c3e50;
+      font-weight: 500;
+    }
+
+    .date {
+      font-size: 16px;
+      color: #6c757d;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+    }
+
+    .contact-item strong {
+      min-width: 100px;
+      color: #2c3e50;
+    }
+
+    .contact-item span {
+      color: #495057;
+    }
+
+    .contact-item a {
+      color: #4a90e2;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #357abd;
+      text-decoration: underline;
+    }
+
+    .document-link {
+      display: inline-block;
+      color: #4a90e2;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 8px;
+      transition: color 0.3s ease;
+    }
+
+    .document-link:hover {
+      color: #357abd;
+      text-decoration: underline;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-tag {
+      background-color: #e9ecef;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      text-align: center;
+      color: #495057;
+    }
+
+    @media (max-width: 768px) {
+      /* keep header vertical spacing on the right column on small screens */
+      .header-right {
+        padding: 40px 20px;
+      }
+
+      .header-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header-right {
+        align-items: center;
+        text-align: center;
+      }
+
+      .header-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .profile-image-container {
+        width: 160px;
+        height: 160px; /* keep notable circular avatar size on mobile */
+      }
+
+      /* smaller map height on narrow screens */
+      .map-container {
+        height: 220px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      section {
+        padding: 24px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="portfolio-container">
+  <header id="top">
+    <div class="header-content">
+    <div class="header-right">
+     <div class="profile-image-container">
+      <div class="profile-image"><img src="https://drive.google.com/thumbnail?id=1Lf5OoG_tuCE_WBJ_J7WyF2H9stowG-hM&amp;sz=w400" alt="Profile Picture" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#e9ecef;color:#6c757d;font-size:48px;\'>👤</div>';"/></div>
+     </div>
+      <h1 id="portfolio-name">Raphael Paul Poligratis</h1>
+      <div id="portfolio-title">Data Analyst | Program Developer | Graphic Designer</div>
+      <!-- Header navigation -> quick links to sections -->
+      <nav class="header-nav" aria-label="Primary navigation">
+       <a href="#awards">Awards</a>
+       <a href="#certificates">Certificates</a>
+       <a href="#skills">Skills</a>
+       <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    </div>
+   </header>
+   <main>
+    <section id="about">
+     <h2 id="about-title">About</h2>
+     <p id="about-text">Computer Science student at Philippine Christian University with a strong academic record and passion for programming. Proficient in object-oriented programming and various development tools. Committed to continuous learning and applying technical skills to create innovative software solutions.</p>
+    </section>
+    <section id="education">
+     <h2 id="education-title">Education</h2>
+     <div class="experience-item">
+      <h3>Bachelor's Degree</h3>
+      <p class="date">2023 - Present | Philippine Christian University</p>
+      <p>Currently pursuing a degree with a strong focus on programming and software development. Consistently achieving academic excellence as a Dean's Lister.</p>
+     </div>
+     <div class="experience-item">
+      <h3>Senior High School - ICT Strand</h3>
+      <p class="date">Graduated 2023 | Manuel A. Roxas High School</p>
+      <p>Graduated with High Honors. Specialized in Information and Communications Technology, building a strong foundation in programming and computer systems.</p>
+     </div>
+    </section>
+    <section id="awards">
+     <h2 id="awards-title">Awards</h2>
+     <div class="experience-item">
+      <h3>Dean's Lister</h3>
+      <p class="date">2024 - 2025 | Philippine Christian University</p>
+      <p>Achieved academic excellence with an outstanding average of 1.23 for the second year.</p><a href="https://drive.google.com/file/d/1r_IYOBlDEGSK_krIeToryoKYVT6sRfa4/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="document-link">View Certificate →</a>
+     </div>
+     <div class="experience-item">
+      <h3>Dean's Lister</h3>
+      <p class="date">2023 - 2024 | Philippine Christian University</p>
+      <p>Achieved academic excellence with an outstanding average of 1.32 for the first year.</p><a href="https://drive.google.com/file/d/1UepYxt57vGNsuJkjizK4t1uUZV1u0eAG/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="document-link">View Certificate →</a>
+     </div>
+     <div class="experience-item">
+      <h3>With High Honors</h3>
+      <p class="date">2023 | Manuel A. Roxas High School</p>
+      <p>Graduated with High Honors in the ICT strand, demonstrating exceptional academic performance and dedication to technology studies.</p><a href="https://drive.google.com/file/d/1cltaBQgOZmFTqXvzv846ggKlDVVQSNM_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="document-link">View Certificate →</a>
+     </div>
+    </section>
+    <section id="certificates">
+     <h2 id="certificates-title">Certificates</h2>
+     <div class="experience-item">
+      <h3>Object Oriented Programming</h3>
+      <p class="date">2025 | Philippine Christian University</p>
+      <p>Successfully completed certification in Object Oriented Programming, demonstrating proficiency in OOP principles and practices.</p><a href="https://drive.google.com/file/d/16j-AI8AIYIvygJkYDeCcaITl72sTq2gi/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="document-link">View Certificate →</a>
+     </div>
+     <div class="experience-item">
+      <h3>National Certificate II in Computer Systems Servicing</h3>
+      <p class="date">Issued: May 31, 2023 | Valid until: May 30, 2028</p>
+      <p>TESDA certification demonstrating competency in computer systems servicing, including hardware troubleshooting, maintenance, and repair. Issued by Director General Danilo P. Cruz.</p><a href="https://drive.google.com/file/d/1nsyKUw6xPhHVEjp_VxFz25QLucd5vVWu/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="document-link">View Certificate →</a>
+     </div>
+     <div class="experience-item">
+      <h3>National Certificate III in Visual Graphic Design</h3>
+      <p class="date">Issued: June 01, 2023 | Valid until: May 31, 2028</p>
+      <p>TESDA certification demonstrating advanced competency in visual graphic design, including layout design, digital illustration, and graphic composition. Issued by Director General Danilo P. Cruz.</p><a href="https://drive.google.com/file/d/1p-XpLdp0xApMvM1j3AT9epsx46ic8iF_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="document-link">View Certificate →</a>
+     </div>
+    </section>
+    <section id="other-awards">
+     <h2 id="other-awards-title">Other Awards</h2>
+     <div class="experience-item">
+      <p>Other Certificates Attained.</p><a href="https://drive.google.com/drive/folders/1Pn_NK-H93bFi5aIEmCYnCliyfulbSh05?usp=sharing" target="_blank" rel="noopener noreferrer" class="document-link">View Certificate →</a>
+     </div>
+    </section>
+    <section id="skills">
+     <h2 id="skills-title">Skills</h2>
+     <div class="skills-grid">
+      <div class="skill-tag">
+       C#
+      </div>
+      <div class="skill-tag">
+       Java
+      </div>
+      <div class="skill-tag">
+       HTML/CSS
+      </div>
+      <div class="skill-tag">
+       GitHub
+      </div>
+      <div class="skill-tag">
+       Visual Studio
+      </div>
+      <div class="skill-tag">
+       SQL / SSMS
+      </div>
+      <div class="skill-tag">
+       UI/UX Design
+      </div>
+      <div class="skill-tag">
+       Design Systems
+      </div>
+      <div class="skill-tag">
+       Figma
+      </div>
+     </div>
+    </section>
+    <section id="contact">
+     <h2 id="contact-title">Contact</h2>
+     <div class="contact-info">
+      <div class="contact-item"><strong id="email-label">Email:</strong> <a href="mailto:raphael12poligratis@email.com">raphael12poligratis@email.com</a>
+      </div>
+      <div class="contact-item"><strong id="phone-label">Phone:</strong> <span id="phone-number">+63 977 460 6106</span>
+      </div>
+      <div class="contact-item"><strong id="address-label">Address:</strong> <span id="address-text">1323 D Burgos St, Paco, Manila, Philippines</span>
+      </div>
+      <div class="contact-item"><strong id="linkedin-label">LinkedIn:</strong> <a href="https://www.linkedin.com/in/raphael-paul-poligratis-ab24b7270" target="_blank" rel="noopener noreferrer">linkedin.com/in/raphael-paul-poligratis</a>
+      </div>
+     </div>
+    </section>
+   </main>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="map-container">
+      <!-- responsive google map -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.241943483738!2d120.9973165!3d14.5852849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c98d095c8757%3A0x3997cb66702f81dc!2s1323%20Burgos%2C%20Paco%2C%20Manila%2C%201007%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1764572405634!5m2!1sen!2sph" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+    <div class="footer-nav-wrap">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#top">Profile</a>
+        <a href="#awards">Awards</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      background_color: "#f8f9fa",
+      surface_color: "#ffffff",
+      text_color: "#2c3e50",
+      primary_action_color: "#4a90e2",
+      font_family: "Georgia",
+      title: "Data Analyst | Program Developer | Graphic Designer",
+      font_size: 16,
+      name: "Raphael Paul Poligratis",
+      about_title: "About",
+      about_text: "Information Technology student at Philippine Christian University with a strong academic record and passion for programming. Proficient in object-oriented programming and various development tools. Committed to continuous learning and applying technical skills to create innovative software solutions.",
+      education_title: "Education",
+      skills_title: "Skills",
+      awards_title: "Awards",
+      certificates_title: "Certificates",
+      contact_title: "Contact",
+      email_label: "Email:",
+      phone_label: "Phone:",
+      address_label: "Address:",
+      phone_number: "+63 977 460 6106",
+      address_text: "1323 D Burgos St, Paco, Manila, Philippines",
+      linkedin_label: "LinkedIn:"
+    };
+
+    async function onConfigChange(config) {
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      const baseFontSize = config.font_size || defaultConfig.font_size;
+
+      document.body.style.backgroundColor = backgroundColor;
+      document.body.style.color = textColor;
+      document.body.style.fontFamily = `${fontFamily}, Georgia, serif`;
+
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        section.style.backgroundColor = surfaceColor;
+      });
+
+      const header = document.querySelector('header');
+      // keep header specifically cornflowerblue while sections use surfaceColor
+      header.style.backgroundColor = 'cornflowerblue';
+
+      const h1 = document.querySelector('h1');
+      // set general h1 color from config
+      h1.style.color = textColor;
+      // but keep the header name specifically white for contrast against the blue header
+      const headerName = document.getElementById('portfolio-name');
+      if (headerName) headerName.style.color = '#ffffff';
+
+      // make sure header navigation links remain white and readable against the blue header
+      const headerLinks = document.querySelectorAll('header .header-nav a');
+      headerLinks.forEach(a => {
+        a.style.color = '#ffffff';
+        a.style.background = 'rgba(255,255,255,0.06)';
+      });
+      h1.style.fontSize = `${baseFontSize * 3}px`;
+
+      const h2Elements = document.querySelectorAll('h2');
+      h2Elements.forEach(h2 => {
+        h2.style.color = textColor;
+        h2.style.fontSize = `${baseFontSize * 2}px`;
+      });
+
+      const h3Elements = document.querySelectorAll('h3');
+      h3Elements.forEach(h3 => {
+        h3.style.color = textColor;
+        h3.style.fontSize = `${baseFontSize * 1.5}px`;
+      });
+
+      const paragraphs = document.querySelectorAll('p');
+      paragraphs.forEach(p => {
+        p.style.fontSize = `${baseFontSize * 1.125}px`;
+      });
+
+      const links = document.querySelectorAll('.contact-item a');
+      links.forEach(link => {
+        link.style.color = primaryActionColor;
+      });
+
+      document.getElementById('portfolio-name').textContent = config.name || defaultConfig.name;
+      document.getElementById('about-title').textContent = config.about_title || defaultConfig.about_title;
+      // update the header subtitle / title if provided in config
+      const portfolioTitleEl = document.getElementById('portfolio-title');
+      if (portfolioTitleEl) {
+        portfolioTitleEl.textContent = config.title || defaultConfig.title || 'Data Analyst and Program Developer';
+        portfolioTitleEl.style.color = '#ffffff';
+      }
+      document.getElementById('about-title').textContent = config.about_title || defaultConfig.about_title;
+      document.getElementById('about-text').textContent = config.about_text || defaultConfig.about_text;
+      document.getElementById('education-title').textContent = config.education_title || defaultConfig.education_title;
+      document.getElementById('skills-title').textContent = config.skills_title || defaultConfig.skills_title;
+      document.getElementById('awards-title').textContent = config.awards_title || defaultConfig.awards_title;
+      document.getElementById('certificates-title').textContent = config.certificates_title || defaultConfig.certificates_title;
+      document.getElementById('contact-title').textContent = config.contact_title || defaultConfig.contact_title;
+      document.getElementById('email-label').textContent = config.email_label || defaultConfig.email_label;
+      document.getElementById('phone-label').textContent = config.phone_label || defaultConfig.phone_label;
+      document.getElementById('address-label').textContent = config.address_label || defaultConfig.address_label;
+      document.getElementById('phone-number').textContent = config.phone_number || defaultConfig.phone_number;
+      document.getElementById('address-text').textContent = config.address_text || defaultConfig.address_text;
+      document.getElementById('linkedin-label').textContent = config.linkedin_label || defaultConfig.linkedin_label;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ surface_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              config.primary_action_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ primary_action_color: value });
+              }
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["name", config.name || defaultConfig.name],
+        ["about_title", config.about_title || defaultConfig.about_title],
+        ["about_text", config.about_text || defaultConfig.about_text],
+        ["education_title", config.education_title || defaultConfig.education_title],
+        ["skills_title", config.skills_title || defaultConfig.skills_title],
+        ["awards_title", config.awards_title || defaultConfig.awards_title],
+        ["certificates_title", config.certificates_title || defaultConfig.certificates_title],
+        ["contact_title", config.contact_title || defaultConfig.contact_title],
+        ["email_label", config.email_label || defaultConfig.email_label],
+        ["phone_label", config.phone_label || defaultConfig.phone_label],
+        ["address_label", config.address_label || defaultConfig.address_label],
+        ["phone_number", config.phone_number || defaultConfig.phone_number],
+        ["address_text", config.address_text || defaultConfig.address_text],
+        ["linkedin_label", config.linkedin_label || defaultConfig.linkedin_label]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Portfolio</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background-color: #f8f9fa;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .portfolio-container {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    header {
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29kZSUyMGJsb2NrfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60');
+      width:100%;
+      height:auto;
+      background-size: cover;
+      background-position: center;
+      padding: 0; 
+      text-align: center;
+      border-bottom: 12px solid royalblue;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column; /* stack image above the name */
+      align-items: center; /* center content */
+      gap: 12px;
+      width: 100%;
+      padding: 0; /* vertical spacing handled by .header-right */
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* center name/title/nav */
+      gap: 6px;
+      text-align: center;
+      flex: 1;
+      padding: 60px 40px; /* spacing moved here */
+    }
+
+    .header-right .header-nav {
+      justify-content: center;
+    }
+
+    .profile-image-container {
+      width: 240px; /* larger circular profile */
+      height: 240px;
+      border-radius: 50%; /* circular */
+      overflow: hidden;
+      border: none;
+      display:flex;
+      align-items:stretch;
+      justify-content:center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    header h1, h1 {
+      margin: 0;
+      font-size: 48px;
+      font-weight: 400;
+      color: #ffffff; /* header name should be white */
+      letter-spacing: 1px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 40px;
+    }
+
+    section {
+      background-color: #ffffff;
+      margin-bottom: 40px;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      font-size: 32px;
+      margin: 0 0 24px 0;
+      color: #1a252f;
+      font-weight: 400;
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 12px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 0 0 16px 0;
+      color: #495057;
+    }
+
+    .experience-item, .skill-item {
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .experience-item:last-child, .skill-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin: 0 0 8px 0;
+      color: #2c3e50;
+      font-weight: 500;
+    }
+
+    .date {
+      font-size: 16px;
+      color: #6c757d;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+    }
+
+    .contact-item strong {
+      min-width: 100px;
+      color: #2c3e50;
+    }
+
+    .contact-item span {
+      color: #495057;
+    }
+
+    .contact-item a {
+      color: #4a90e2;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #357abd;
+      text-decoration: underline;
+    }
+
+    .document-link {
+      display: inline-block;
+      color: #4a90e2;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 8px;
+      transition: color 0.3s ease;
+    }
+
+    .document-link:hover {
+      color: #357abd;
+      text-decoration: underline;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-tag {
+      background-color: #e9ecef;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      text-align: center;
+      color: #495057;
+    }
+
+    @media (max-width: 768px) {
+      .header-right {
+        padding: 40px 20px;
+      }
+
+      .profile-image-container {
+        width: 160px;
+        height: 160px;
+      }
+
+      /* smaller map height on narrow screens */
+      .map-container {
+        height: 220px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      section {
+        padding: 24px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a3d5fb2278b85f3',t:'MTc2NDAzNDE1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
